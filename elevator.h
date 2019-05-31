@@ -1,7 +1,6 @@
 #ifndef ELEVATOR_H
 #define ELEVATOR_H
 
-#include "pbl/src/src/pbl.h"
 #include "person.h"
 
 #define MAX_ELEVATOR_CAPACITY 12
