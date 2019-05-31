@@ -3,6 +3,8 @@
 
 #include "pbl/src/src/pbl.h"
 
+#define BASE_PRIORITY 0
+
 typedef struct person{
    int destination;
    int arrival;
