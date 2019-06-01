@@ -74,6 +74,7 @@ linked_list_t *free_linked_list(linked_list_t *my_list, void remove_val(void*)){
 
 void* move_next(linked_list_t *my_list){
     if(my_list && my_list->iterator){
+        my_list->prev_iter = my_list->iterator;
         my_list->iterator = my_list->iterator->next;
         void *val = my_list->iterator->value;
         return val;
@@ -84,6 +85,7 @@ void* move_next(linked_list_t *my_list){
 int reset_iterator(linked_list_t *my_list){
     if(my_list){
         my_list->iterator = my_list->head;
+        my_list->prev_iter = NULL;
         return 1;
     } else {
         return FAILED_EXECUTION;
@@ -100,4 +102,14 @@ int iter_has_next(linked_list_t *my_list){
 
 int list_is_empty(linked_list_t *my_list){
     return my_list->head == my_list->tail;
+}
+
+void *get_current_iter_value(linked_list_t *my_list){
+    return my_list->iterator->value;
+}
+
+void remove_current_iter_node(linked_list_t *my_list, void free_value(void*)){
+    my_list->prev_iter->next = my_list->iterator->next;
+    free_node(my_list->iterator, free_value);
+    my_list->iterator = my_list->prev_iter->next;
 }
