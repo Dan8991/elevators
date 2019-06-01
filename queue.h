@@ -12,7 +12,7 @@ typedef struct queue{
 
 queue_t get_queue();
 
-int queue_element(queue_t *queue, void* element);
+int queue_element(queue_t *queue, void* element, int current_time);
 
 void *dequeue_element(queue_t *queue);
 

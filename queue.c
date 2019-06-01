@@ -11,8 +11,11 @@ queue_t get_queue(){
 }
 
 
-int queue_element(queue_t *queue, void* element){
+int queue_element(queue_t *queue, void* element, int current_time){
     if(queue && element){
+        if(queue_is_empty(queue)){
+            queue->start_time = current_time;
+        }
         add(queue->element_queue, element);
         return CORRECT_EXECUTION;
     } else {
