@@ -2,17 +2,15 @@
 #define PERSONA_H
 
 #define BASE_PRIORITY 0
+#include "linked_list.h"
+#include "node.h"
 
 typedef struct person{
    int destination;
    int arrival;
-   int priority;
+   int arrival_time;
 }person_t;
 
-person_t get_person(int destination, int arrival);
-
-void increase_priority(person_t *person);
-
-void bulk_increase_priority(person_t *people, int arr_len);
+person_t get_person(int destination, int arrival, int arrival_time);
 
 #endif
