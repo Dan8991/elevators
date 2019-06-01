@@ -11,6 +11,6 @@ typedef struct person{
    int arrival_time;
 }person_t;
 
-person_t get_person(int destination, int arrival, int arrival_time);
+person_t *get_person(int destination, int arrival, int arrival_time);
 
 #endif
