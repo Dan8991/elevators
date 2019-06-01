@@ -17,7 +17,7 @@ int add(linked_list_t *list, void* value);
 
 int remove_all(linked_list_t *my_list, int eliminate(void* value), void free_val(void*));
 
-node_t *remove_first(linked_list_t *my_list);
+void *remove_first(linked_list_t *my_list);
 
 linked_list_t *free_linked_list(linked_list_t *my_list, void remove_val(void*));
 

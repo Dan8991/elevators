@@ -46,11 +46,11 @@ int remove_all(linked_list_t *my_list, int eliminate(void* value), void free_val
     }
 }
 
-node_t * remove_first(linked_list_t *my_list){
+void *remove_first(linked_list_t *my_list){
     if(my_list && my_list->head){
         node_t *ret = my_list->head->next;
         my_list->head->next = my_list->head->next->next;
-        return ret;
+        return ret->value;
     } else {
         return NULL;
     }
