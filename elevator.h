@@ -21,7 +21,7 @@ elevator_t get_elevator();
 
 void forward_time(elevator_t *elevator);
 
-void choose_next_destination(elevator_t *elevator, queue_t **floors);
+void choose_next_destination(elevator_t *elevator, queue_t *floors);
 
 // void enter_people(elevator_t *elevator, )
 
