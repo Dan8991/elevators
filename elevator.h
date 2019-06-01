@@ -19,11 +19,11 @@ typedef struct elevator{
 
 elevator_t get_elevator();
 
-void forward_time(elevator_t *elevator);
+void forward_time(elevator_t *elevator, queue_t *queue);
 
 void choose_next_destination(elevator_t *elevator, queue_t *floors);
 
-// void enter_people(elevator_t *elevator, )
+void enter_people(elevator_t *elevator, queue_t *people_queue);
 
 elevator_t *free_elevator(elevator_t *elevator);
 

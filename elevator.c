@@ -15,14 +15,14 @@ elevator_t get_elevator(){
     };
 }
 
-void forward_time(elevator_t *elevator){
+void forward_time(elevator_t *elevator, queue_t *people_queue){
     if(elevator->current_floor > elevator->destination){
         elevator->current_floor--;
     } else if(elevator->current_floor < elevator->destination) {
         elevator->current_floor++;
     }
     if(elevator->current_floor == elevator->destination){
-        choose_next_destination(elevator);
+        choose_next_destination(elevator, people_queue);
     }
     elevator->total_time++;
 }
@@ -59,3 +59,13 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors){
     elevator->destination = max_floor;
 }
 
+void enter_people(elevator_t *elevator, queue_t *people_queue){
+    while(elevator->in_people_number < MAX_ELEVATOR_CAPACITY && 
+            !queue_is_empty(people_queue + elevator->in_people_number)){
+        person_t *person = dequeue_element(people_queue);
+        person->arrival_time = elevator->total_time;
+        add(elevator->in_people, person);
+        elevator->in_people_number ++;
+        people_queue->start_time = elevator->total_time;
+    }
+}
