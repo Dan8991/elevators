@@ -1,4 +1,5 @@
 #include "queue.h"
+#include <stdlib.h>
 
 
 queue_t get_queue(){
@@ -23,7 +24,7 @@ void *dequeue_element(queue_t *queue){
 }
 
 queue_t *free_queue(queue_t* queue){
-    free_linked_list(queue->element_queue);
+    free_linked_list(queue->element_queue, free);
 }
 
 int queue_is_empty(queue_t *queue){
