@@ -1,4 +1,5 @@
 #include "queue.h"
+#include <string.h>
 #include <stdlib.h>
 
 
@@ -26,6 +27,17 @@ void *dequeue_element(queue_t *queue){
 queue_t *free_queue(queue_t* queue){
     free_linked_list(queue->element_queue, free);
     return NULL;
+}
+
+char *queue_to_string(queue_t *queue, char* val_to_string(char* val_string, void* val), int max_val_string_length)
+{
+    char *list_string = malloc(sizeof(char)*(
+            EXTRA_QUEUE_STRING_LENGTH + max_val_string_length * queue->element_queue->length
+        ));
+    list_string = linked_list_to_string(list_string, queue->element_queue, val_to_string, max_val_string_length);
+    char temp[EXTRA_QUEUE_STRING_LENGTH];
+    sprintf(temp, "length:%d\n", queue->element_queue->length);
+    return strcat(list_string, temp);
 }
 
 int queue_is_empty(queue_t *queue){
