@@ -4,35 +4,16 @@
 #include "person.h"
 #include "elevator.h"
 #include "queue.h"
-
-#define PRINT_STATUS "PRINT_STATUS" 
-#define TIME_STEP "TIME_STEP" 
-#define MAX_INPUT_LINE_LENGTH 21 
-
-void print_status(){
-    printf(PRINT_STATUS);
-    printf("\n");
-}
-
-void time_step(){
-    printf(TIME_STEP);
-    printf("\n");
-}
-
-void person_arrives(char *string){
-    int arrival;
-    int destination;
-    char mock[MAX_INPUT_LINE_LENGTH];
-    sscanf(string, "%s %d %d", mock, &arrival, &destination);
-    printf("%d %d\n", arrival, destination);
-}
+#include "hotel.h"
 
 int main(int argv, char **argc){
 
     FILE *input_file = fopen(argc[1], "r");
     char command[MAX_INPUT_LINE_LENGTH]; 
-
-
+    int current_time = 0;
+    queue_t floors[MAX_FLOOR];
+    initialize_floors(floors);
+    
 
     while(fgets(command, MAX_INPUT_LINE_LENGTH, input_file)){
         char base_command[MAX_INPUT_LINE_LENGTH];
@@ -40,6 +21,7 @@ int main(int argv, char **argc){
         if(strcmp(base_command, PRINT_STATUS) == 0){
             print_status();
         } else if(strcmp(base_command, "TIME_STEP") == 0){
+            current_time++;
             time_step();
         } else {
             person_arrives(command);
