@@ -25,6 +25,9 @@ void forward_time(elevator_t *elevator){
 }
 
 
+elevator_t *free_elevator(elevator_t *elevator){
+    free_linked_list(elevator->in_people, NULL);
+}
 
 void choose_next_destination(elevator_t *elevator){
     int priorities[MAX_FLOOR] = {};
