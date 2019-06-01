@@ -7,6 +7,7 @@ node_t *create_node(void *value){
 
     ret->value = value;
     ret->next = NULL; 
+    ret->previous = NULL;
     return ret;
 }
 

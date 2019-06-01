@@ -9,7 +9,6 @@ typedef struct linked_list{
     node_t *head;
     node_t *tail;
     node_t *iterator;
-    node_t *prev_iter;
 }linked_list_t;
 
 linked_list_t *create_list();
