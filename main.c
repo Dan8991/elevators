@@ -19,12 +19,12 @@ int main(int argv, char **argc){
         char base_command[MAX_INPUT_LINE_LENGTH];
         sscanf(command, "%s", base_command);
         if(strcmp(base_command, PRINT_STATUS) == 0){
-            print_status();
+            print_status(floors);
         } else if(strcmp(base_command, "TIME_STEP") == 0){
             current_time++;
             time_step();
         } else {
-            person_arrives(command);
+            person_arrives(command, floors, current_time);
         }
     }
 }
