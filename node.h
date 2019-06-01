@@ -4,8 +4,8 @@
 
 typedef struct node{
     void *value;
-    node_t *previous;
-    node_t *next;
+    struct node *previous;
+    struct node *next;
 } node_t;
 
 node_t *create_node(void *value);

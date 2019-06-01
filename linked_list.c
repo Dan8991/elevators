@@ -66,6 +66,7 @@ linked_list_t *free_linked_list(linked_list_t *my_list, void remove_val(void*)){
         while(curr){
             node_t *next = curr->next;
             free_node(curr, remove_val);
+            curr = next;
         } 
     }
     return NULL;

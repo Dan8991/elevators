@@ -25,6 +25,7 @@ void *dequeue_element(queue_t *queue){
 
 queue_t *free_queue(queue_t* queue){
     free_linked_list(queue->element_queue, free);
+    return NULL;
 }
 
 int queue_is_empty(queue_t *queue){

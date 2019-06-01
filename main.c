@@ -1,8 +1,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-// #include "person.h"
-// #include "elevator.h"
+#include "person.h"
+#include "elevator.h"
+#include "queue.h"
 
 #define PRINT_STATUS "PRINT_STATUS" 
 #define TIME_STEP "TIME_STEP" 
@@ -27,8 +28,12 @@ void person_arrives(char *string){
 }
 
 int main(int argv, char **argc){
+
     FILE *input_file = fopen(argc[1], "r");
     char command[MAX_INPUT_LINE_LENGTH]; 
+
+
+
     while(fgets(command, MAX_INPUT_LINE_LENGTH, input_file)){
         char base_command[MAX_INPUT_LINE_LENGTH];
         sscanf(command, "%s", base_command);

@@ -31,6 +31,7 @@ void forward_time(elevator_t *elevator, queue_t *people_queue){
 elevator_t *free_elevator(elevator_t *elevator){
     free_linked_list(elevator->in_people, free);
     elevator->in_people = NULL;
+    return NULL;
 }
 
 void choose_next_destination(elevator_t *elevator, queue_t *floors){
@@ -73,7 +74,7 @@ void enter_people(elevator_t *elevator, queue_t *people_queue){
 void exit_people(elevator_t *elevator){
     while(iter_has_next(elevator->in_people)){
         person_t *person = move_next(elevator->in_people);
-        if(person->destination = elevator->current_floor){
+        if(person->destination == elevator->current_floor){
             remove_current_iter_node(elevator->in_people, free);
             elevator->in_people_number--;
         }

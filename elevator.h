@@ -4,6 +4,7 @@
 #include "person.h"
 #include "linked_list.h"
 #include "node.h"
+#include "queue.h"
 
 #define MAX_ELEVATOR_CAPACITY 12
 #define MAX_FLOOR 20

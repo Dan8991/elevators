@@ -1,2 +1,2 @@
-gcc -Wall main.c person.c elevator.c -o ascensore
+gcc -Wall *.c -o ascensore
 ./ascensore input.txt
