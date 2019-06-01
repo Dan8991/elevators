@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "hotel.h"
 #include "queue.h"
@@ -18,8 +19,11 @@ void time_step(){
 }
 
 void print_status(queue_t* floors){
-    printf(PRINT_STATUS);
-    printf("\n");
+    for(int i = 0; i < MAX_FLOOR; i++){
+        char *floors_string = queue_to_string(floors + i, person_to_string, MAX_PERSON_STRING_LENGTH);
+        printf("%s", floors_string);
+        free(floors_string);
+    }
 }
 
 void initialize_floors(queue_t *floors){
