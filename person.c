@@ -21,3 +21,7 @@ char *person_to_string(char *person_string, person_t person){
     ); 
     return person_string;
 }
+
+void set_arrival_time(person_t *person, int arrival_time){
+    person->arrival_time = arrival_time;
+}
