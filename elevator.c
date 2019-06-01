@@ -3,14 +3,14 @@
 #include "linked_list.h"
 #include "node.h"
 
-elevator_t *get_elevator(){
-    elevator_t *ret = malloc(sizeof(elevator_t));
-    ret->in_people = create_list();
-    ret->in_people_number = 0;
-    ret->wait_people = (int[MAX_FLOOR]) {};
-    ret->current_floor = 0;
-    ret->destination = 0;
-    return ret;
+elevator_t get_elevator(){
+    return (elevator_t){
+        in_people: create_list(),
+        in_people_number: 0,
+        wait_people: (int[MAX_FLOOR]) {},
+        current_floor: 0,
+        destination: 0
+    };
 }
 
 void forward_time(elevator_t *elevator){
@@ -24,11 +24,7 @@ void forward_time(elevator_t *elevator){
     }
 }
 
-elevator_t *free_elevator(elevator_t *elevator){
-    free_linked_list(elevator, NULL);
-    free(elevator);
-    return NULL;
-}
+
 
 void choose_next_destination(elevator_t *elevator){
     int priorities[MAX_FLOOR] = {};

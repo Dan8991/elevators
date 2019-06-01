@@ -16,7 +16,7 @@ typedef struct elevator{
     int destination;
 }elevator_t;
 
-elevator_t *get_elevator();
+elevator_t get_elevator();
 
 void forward_time(elevator_t *elevator);
 
