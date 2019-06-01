@@ -27,6 +27,6 @@ int reset_iterator(linked_list_t *my_list);
 
 int iter_has_next(linked_list_t *my_list);
 
-
+int list_is_empty(linked_list_t *my_list);
 
 #endif

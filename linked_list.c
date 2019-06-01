@@ -94,3 +94,7 @@ int iter_has_next(linked_list_t *my_list){
         return FAILED_EXECUTION;
     }
 }
+
+int list_is_empty(linked_list_t *my_list){
+    return my_list->head == my_list->tail;
+}

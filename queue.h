@@ -16,4 +16,6 @@ void *dequeue_element(queue_t *queue);
 
 queue_t *free_queue(queue_t* queue);
 
+int queue_is_empty(queue_t *queue);
+
 #endif
