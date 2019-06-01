@@ -9,7 +9,7 @@ void person_arrives(char *string, queue_t *floors, int current_time){
     int destination;
     char mock[MAX_INPUT_LINE_LENGTH];
     sscanf(string, "%s %d %d", mock, &arrival, &destination);
-    queue_element(floors + arrival ,get_person(destination, arrival, current_time));
+    queue_element(floors + arrival, get_person(destination, arrival, current_time), current_time);
 }
 
 void time_step(){
