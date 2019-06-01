@@ -69,3 +69,13 @@ void enter_people(elevator_t *elevator, queue_t *people_queue){
         people_queue->start_time = elevator->total_time;
     }
 }
+
+void exit_people(elevator_t *elevator){
+    while(iter_has_next(elevator->in_people)){
+        person_t *person = move_next(elevator->in_people);
+        if(person->destination = elevator->current_floor){
+            remove_current_iter_node(elevator->in_people, free);
+            elevator->in_people_number--;
+        }
+    }    
+}

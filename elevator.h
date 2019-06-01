@@ -25,6 +25,8 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors);
 
 void enter_people(elevator_t *elevator, queue_t *people_queue);
 
+void exit_people(elevator_t *elevator);
+
 elevator_t *free_elevator(elevator_t *elevator);
 
 #endif
