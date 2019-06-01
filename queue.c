@@ -21,3 +21,7 @@ int queue_element(queue_t *queue, void* element){
 void *dequeue_element(queue_t *queue){
     return remove_first(queue);
 }
+
+queue_t *free_queue(queue_t* queue){
+    free_linked_list(queue->element_queue);
+}

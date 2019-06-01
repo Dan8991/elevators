@@ -14,4 +14,6 @@ int queue_element(queue_t *queue, void* element);
 
 void *dequeue_element(queue_t *queue);
 
+queue_t *free_queue(queue_t* queue);
+
 #endif
