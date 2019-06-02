@@ -1,6 +1,7 @@
 #include "linked_list.h"
 #include "node.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 linked_list_t *create_list(){
@@ -126,7 +127,7 @@ char *linked_list_to_string(char *list_string, linked_list_t *my_list,
         char *val_to_string(char* string, void* val), int max_val_string_length)
 {
     reset_iterator(my_list);
-    list_string = "";
+    list_string[0] = '\0';
     char temp[max_val_string_length];
     while(iter_has_next(my_list)){
         list_string = strcat(list_string, val_to_string(temp, move_next(my_list)));
