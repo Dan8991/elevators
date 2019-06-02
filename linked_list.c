@@ -131,6 +131,9 @@ char *linked_list_to_string(char *list_string, linked_list_t *my_list,
     reset_iterator(my_list);
     list_string[0] = '\0';
     char temp[max_val_string_length];
+    if(linked_list_length(my_list) == 0){
+        return strcat(list_string, "EMPTY\n");
+    }
     while(iter_has_next(my_list)){
         list_string = strcat(list_string, val_to_string(temp, move_next(my_list)));
     } 
