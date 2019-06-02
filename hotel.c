@@ -24,20 +24,18 @@ void time_step(elevator_t *elevators, queue_t *floors, int total_time){
     time_step_elevator(elevators + 1, floors, total_time);
     forward_time(elevators, floors, total_time);
     forward_time(elevators + 1, floors, total_time);
-	//printf("elevator1 %d %d, elevator2, %d %d\n",elevators->current_floor, elevators->destination, (elevators +1)->current_floor, (elevators+1)->destination);
+}
+
+void print_info(elevator_t *elevator){
+	printf("elevator:\ncurrent floor: %d\npeople inside: %d\ndestination:%d\n\n", elevator->current_floor, elevator_load(elevator), elevator->destination); 
 }
 
 void print_status(elevator_t *elevators, queue_t* floors){
     printf("PRINT_STATUS:\n\n");
-    char elevator_string[MAX_ELEVATOR_CAPACITY * MAX_PERSON_STRING_LENGTH + MAX_ELEVATOR_EXTRA_STRING_LENGTH];
-    printf("%s\n", elevator_to_string(elevator_string, elevators));
-    printf("%s\n", elevator_to_string(elevator_string, elevators + 1));
-    for(int i = 0; i < MAX_FLOOR; i++){
-        char *floors_string = queue_to_string(floors + i, person_to_string, MAX_PERSON_STRING_LENGTH);
-        printf("floor #%d:\n%s\n", i, floors_string);
-        free(floors_string);
-    }
+	print_info(elevators);
+	print_info(elevators + 1);
 }
+
 
 void initialize_floors(queue_t *floors){
     for(int i = 0; i < MAX_FLOOR; i++){
