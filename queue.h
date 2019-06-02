@@ -22,4 +22,6 @@ int queue_is_empty(queue_t *queue);
 
 char *queue_to_string(queue_t *queue, char* val_to_string(char* val_string, void* val), int max_val_string_length);
 
+int queue_length(queue_t *queue);
+
 #endif
