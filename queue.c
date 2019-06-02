@@ -49,5 +49,5 @@ int queue_is_empty(queue_t *queue){
 }
 
 int queue_length(queue_t *queue){
-    return queue->element_queue->length;
+    return linked_list_length(queue->element_queue);
 }
