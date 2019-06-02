@@ -13,17 +13,18 @@ void person_arrives(char *string, queue_t *floors, int current_time){
     queue_element(floors + arrival, get_person(destination, arrival, current_time), current_time);
 }
 
-void time_step_elevator(elevator_t *elevator,queue_t *floors, int time){
+void time_step_elevator(elevator_t *elevator,queue_t *floors, int total_time){
     if(!queue_is_empty(floors + elevator->current_floor)){
         enter_people(elevator, floors + elevator->current_floor);
     }
 }
 
-void time_step(elevator_t *elevators, queue_t *floors, int time){
-    time_step_elevator(elevators, floors, time);
-    time_step_elevator(elevators + 1, floors, time);
-    forward_time(elevators, floors);
-    forward_time(elevators + 1, floors);
+void time_step(elevator_t *elevators, queue_t *floors, int total_time){
+    time_step_elevator(elevators, floors, total_time);
+    time_step_elevator(elevators + 1, floors, total_time);
+    forward_time(elevators, floors, total_time);
+    forward_time(elevators + 1, floors, total_time);
+	//printf("elevator1 %d %d, elevator2, %d %d\n",elevators->current_floor, elevators->destination, (elevators +1)->current_floor, (elevators+1)->destination);
 }
 
 void print_status(elevator_t *elevators, queue_t* floors){
