@@ -41,7 +41,7 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors){
         priorities[person->destination] += elevator->total_time - person->arrival_time;
     }
 
-    if(linked_list_length(elevator->in_people) < MAX_ELEVATOR_CAPACITY){
+    if(elevator_load(elevator) < MAX_ELEVATOR_CAPACITY){
         for(int i = 0; i < MAX_FLOOR; i++){
             priorities[i] = elevator->total_time - floors[i].start_time;
         }
@@ -61,7 +61,7 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors){
 }
 
 void enter_people(elevator_t *elevator, queue_t *people_queue){
-    while(linked_list_length(elevator->in_people) < MAX_ELEVATOR_CAPACITY && 
+    while(elevator_load(elevator) < MAX_ELEVATOR_CAPACITY && 
             !queue_is_empty(people_queue + elevator->current_floor)){
         person_t *person = dequeue_element(people_queue);
         person->arrival_time = elevator->total_time;
@@ -77,4 +77,8 @@ void exit_people(elevator_t *elevator){
             remove_current_iter_node(elevator->in_people, free);
         }
     }    
+}
+
+int elevator_load(elevator_t *elevator){
+    return linked_list_length(elevator->in_people);
 }

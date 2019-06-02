@@ -29,4 +29,6 @@ void exit_people(elevator_t *elevator);
 
 elevator_t *free_elevator(elevator_t *elevator);
 
+int elevator_load(elevator_t *elevator);
+
 #endif
