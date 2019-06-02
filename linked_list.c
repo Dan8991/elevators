@@ -55,9 +55,11 @@ void *remove_first(linked_list_t *my_list){
     if(my_list && my_list->head){
         node_t *ret = my_list->head->next;
         my_list->head->next = my_list->head->next->next;
-        my_list->head->next->previous = my_list->head;
-        reset_iterator(my_list);
         my_list->length --;
+        if(!list_is_empty(my_list)){
+            my_list->head->next->previous = my_list->head;
+        }
+        reset_iterator(my_list);
         return ret->value;
     } else {
         return NULL;
@@ -134,4 +136,8 @@ char *linked_list_to_string(char *list_string, linked_list_t *my_list,
     } 
     reset_iterator(my_list);
     return list_string;
+}
+
+int linked_list_length(linked_list_t *list){
+    return list->length;
 }
