@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "elevator.h"
 #include "linked_list.h"
 #include "node.h"
@@ -7,7 +8,6 @@
 elevator_t get_elevator(){
     return (elevator_t){
         in_people: create_list(),
-        in_people_number: 0,
         wait_people: (int[MAX_FLOOR]) {},
         current_floor: 0,
         destination: 0,
@@ -41,7 +41,7 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors){
         priorities[person->destination] += elevator->total_time - person->arrival_time;
     }
 
-    if(elevator->in_people_number < MAX_ELEVATOR_CAPACITY){
+    if(linked_list_length(elevator->in_people) < MAX_ELEVATOR_CAPACITY){
         for(int i = 0; i < MAX_FLOOR; i++){
             priorities[i] = elevator->total_time - floors[i].start_time;
         }
@@ -61,12 +61,11 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors){
 }
 
 void enter_people(elevator_t *elevator, queue_t *people_queue){
-    while(elevator->in_people_number < MAX_ELEVATOR_CAPACITY && 
-            !queue_is_empty(people_queue + elevator->in_people_number)){
+    while(linked_list_length(elevator->in_people) < MAX_ELEVATOR_CAPACITY && 
+            !queue_is_empty(people_queue + elevator->current_floor)){
         person_t *person = dequeue_element(people_queue);
         person->arrival_time = elevator->total_time;
         add(elevator->in_people, person);
-        elevator->in_people_number ++;
         people_queue->start_time = elevator->total_time;
     }
 }
@@ -76,7 +75,6 @@ void exit_people(elevator_t *elevator){
         person_t *person = move_next(elevator->in_people);
         if(person->destination == elevator->current_floor){
             remove_current_iter_node(elevator->in_people, free);
-            elevator->in_people_number--;
         }
     }    
 }
