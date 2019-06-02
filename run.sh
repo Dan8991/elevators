@@ -1,2 +1,2 @@
 gcc -Wall *.c -o ascensore
-./ascensore input.txt
+./ascensore input.txt > output.txt
