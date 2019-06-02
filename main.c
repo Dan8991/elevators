@@ -30,4 +30,10 @@ int main(int argv, char **argc){
             person_arrives(command, floors, current_time);
         }
     }
+    fclose(input_file);
+    free_elevator(elevators + 1);
+    free_elevator(elevators);
+    for(int i = 0; i < MAX_FLOOR; i++){
+        free_queue(floors + i);
+    }
 }
