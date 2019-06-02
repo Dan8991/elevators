@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "elevator.h"
 #include "linked_list.h"
 #include "node.h"
@@ -81,4 +82,18 @@ void exit_people(elevator_t *elevator){
 
 int elevator_load(elevator_t *elevator){
     return linked_list_length(elevator->in_people);
+}
+
+char *elevator_to_string(char *elevator_string, elevator_t *elevator){
+    elevator_string[0] = '\0';
+    char temp[MAX_PERSON_STRING_LENGTH * MAX_ELEVATOR_CAPACITY];
+    elevator_string = strcat(elevator_string, "elevator:\n");
+    elevator_string = strcat(elevator_string, linked_list_to_string(
+                                                                    temp, 
+                                                                    elevator->in_people, 
+                                                                    person_to_string, 
+                                                                    MAX_PERSON_STRING_LENGTH));
+    sprintf(temp, "current_floor:%d\ndestination:%d\n", elevator->current_floor, elevator->destination);
+    elevator_string = strcat(elevator_string, temp);
+    return elevator_string;
 }

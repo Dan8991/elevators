@@ -8,6 +8,7 @@
 
 #define MAX_ELEVATOR_CAPACITY 12
 #define MAX_FLOOR 20
+#define MAX_ELEVATOR_EXTRA_STRING_LENGTH 50 
 
 typedef struct elevator{
     linked_list_t *in_people; 
@@ -30,5 +31,7 @@ void exit_people(elevator_t *elevator);
 elevator_t *free_elevator(elevator_t *elevator);
 
 int elevator_load(elevator_t *elevator);
+
+char *elevator_to_string(char *elevator_string, elevator_t *elevator);
 
 #endif
