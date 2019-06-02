@@ -9,7 +9,6 @@
 elevator_t get_elevator(){
     return (elevator_t){
         in_people: create_list(),
-        wait_people: (int[MAX_FLOOR]) {},
         current_floor: 0,
         destination: 0,
         total_time: 0
@@ -17,13 +16,13 @@ elevator_t get_elevator(){
 }
 
 void forward_time(elevator_t *elevator, queue_t *people_queue){
+    if(elevator->current_floor == elevator->destination){
+        choose_next_destination(elevator, people_queue);
+    }
     if(elevator->current_floor > elevator->destination){
         elevator->current_floor--;
     } else if(elevator->current_floor < elevator->destination) {
         elevator->current_floor++;
-    }
-    if(elevator->current_floor == elevator->destination){
-        choose_next_destination(elevator, people_queue);
     }
     elevator->total_time++;
 }
@@ -57,6 +56,7 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors){
             max_priority = priorities[i];
         }
     }
+
     
     elevator->destination = max_floor;
 }

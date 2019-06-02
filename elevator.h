@@ -12,7 +12,6 @@
 
 typedef struct elevator{
     linked_list_t *in_people; 
-    int *wait_people;
     int current_floor;
     int destination;
     int total_time;
