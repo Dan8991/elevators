@@ -69,7 +69,7 @@ void enter_people(elevator_t *elevator, queue_t *people_queue, int total_time){
         person_t *person = dequeue_element(people_queue);
         person->arrival_time = total_time;
         add(elevator->in_people, person);
-        people_queue->start_time = elevator->total_time;
+        people_queue->start_time = total_time;
     }
 }
 
