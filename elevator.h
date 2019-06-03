@@ -23,7 +23,7 @@ void forward_time(elevator_t *elevator, queue_t *queue, int total_time);
 
 void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_time);
 
-void enter_people(elevator_t *elevator, queue_t *people_queue);
+void enter_people(elevator_t *elevator, queue_t *people_queue, int total_time);
 
 void exit_people(elevator_t *elevator);
 
