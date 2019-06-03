@@ -17,14 +17,13 @@ int main(int argv, char **argc){
     elevators[1] = get_elevator();
     initialize_floors(floors);
 
-	//TODO le persone nell'ascensore vengono aggiornate solo al piano dopo
 	//TODO second elevator follows first until it is full
 
     while(fgets(command, MAX_INPUT_LINE_LENGTH, input_file)){
         char base_command[MAX_INPUT_LINE_LENGTH];
         sscanf(command, "%s", base_command);
         if(strcmp(base_command, PRINT_STATUS) == 0){
-            print_status(elevators, floors);
+            print_status(elevators);
         } else if(strcmp(base_command, "TIME_STEP") == 0){
             current_time++;
             time_step(elevators, floors, current_time);
@@ -38,6 +37,6 @@ int main(int argv, char **argc){
     free_elevator(elevators + 1);
     free_elevator(elevators);
     for(int i = 0; i < MAX_FLOOR; i++){
-        free_queue(floors + i);
+        free_queue(floors + i, free);
     }
 }
