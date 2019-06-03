@@ -16,7 +16,9 @@ int main(int argv, char **argc){
     elevators[0] = get_elevator();
     elevators[1] = get_elevator();
     initialize_floors(floors);
-    
+
+	//TODO le persone nell'ascensore vengono aggiornate solo al piano dopo
+	//TODO second elevator follows first until it is full
 
     while(fgets(command, MAX_INPUT_LINE_LENGTH, input_file)){
         char base_command[MAX_INPUT_LINE_LENGTH];
@@ -29,7 +31,9 @@ int main(int argv, char **argc){
         } else {
             person_arrives(command, floors, current_time);
         }
+		
     }
+
     fclose(input_file);
     free_elevator(elevators + 1);
     free_elevator(elevators);
