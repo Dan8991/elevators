@@ -14,8 +14,9 @@ void person_arrives(char *string, queue_t *floors, int current_time){
 }
 
 void time_step_elevator(elevator_t *elevator,queue_t *floors, int total_time){
+	exit_people(elevator);
     if(!queue_is_empty(floors + elevator->current_floor)){
-        enter_people(elevator, floors + elevator->current_floor);
+        enter_people(elevator, floors + elevator->current_floor, total_time);
     }
 }
 
