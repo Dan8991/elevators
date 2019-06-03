@@ -14,12 +14,14 @@
 * iterator = pointer to a node used to access elements in the middle of the list
 * length = length of the list
 */
-typedef struct linked_list{
+typedef struct linked_list
+{
     node_t *head;
     node_t *tail;
     node_t *iterator;
     int length;
-}linked_list_t;
+}
+linked_list_t;
 
 /*
 *constructor of the list, heap memory is allocated
