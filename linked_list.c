@@ -27,30 +27,6 @@ int add(linked_list_t *my_list, void* value){
     return CORRECT_EXECUTION;
 }
 
-int remove_all(linked_list_t *my_list, int eliminate(void* value), void free_val(void*)){
-    if(my_list && my_list->head->next){
-        node_t *curr_node = my_list->head->next;
-        node_t *prev_node = my_list->head;
-        int removed = 0;
-        my_list->length = 0;
-        while(curr_node){
-            if(eliminate(curr_node->value)){
-                prev_node->next = curr_node->next;
-                free_node(curr_node, free_val);
-                curr_node = prev_node->next;
-                removed ++;
-            }else{
-                curr_node = curr_node->next;
-                prev_node = prev_node->next;
-            }
-        }
-        reset_iterator(my_list);
-        return removed;
-    } else {
-        return FAILED_EXECUTION;
-    }
-}
-
 void *remove_first(linked_list_t *my_list){
     if(my_list && my_list->head && my_list->length > 0){
         node_t *ret = my_list->head->next;
