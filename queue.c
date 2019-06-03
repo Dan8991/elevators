@@ -22,7 +22,7 @@ int queue_element(queue_t *queue, void* element, int current_time)
 	//checking if the arguments are ok
 	if( (!queue) || (!element) )
 	{
-		return FAILED_EXECUTION
+		return FAILED_EXECUTION;
 	}
 
 	//if noone was in queue the new arrived presses the button
