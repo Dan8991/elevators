@@ -37,4 +37,6 @@ void print_status(elevator_t *elvators);
 */
 void initialize_floors(queue_t *floors);
 
+void free_floors_queues(queue_t *floors);
+
 #endif

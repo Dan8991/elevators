@@ -69,3 +69,12 @@ void initialize_floors(queue_t *floors)
         floors[i] = get_queue();
     }
 }
+
+
+void free_floors_queues(queue_t *floors)
+{
+    for(int i = 0; i < MAX_FLOOR; i++)
+	{
+        free_queue(floors + i, free);
+    }
+}

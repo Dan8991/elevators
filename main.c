@@ -59,7 +59,5 @@ int main(int argv, char **argc){
     fclose(input_file);
     free_elevator(elevators + 1);
     free_elevator(elevators);
-    for(int i = 0; i < MAX_FLOOR; i++){
-        free_queue(floors + i, free);
-    }
+	free_floors_queues(floors);
 }
