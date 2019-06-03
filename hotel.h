@@ -5,7 +5,7 @@
 
 #define PRINT_STATUS "PRINT_STATUS" 
 #define TIME_STEP "TIME_STEP" 
-#define MAX_INPUT_LINE_LENGTH 21 
+#define MAX_INPUT_LINE_LENGTH 23
 
 void person_arrives(char *string, queue_t *floors, int current_time);
 
