@@ -43,8 +43,9 @@ void *dequeue_element(queue_t *queue);
 *frees the memory allocated by the constructor, if queue is NULL an
 *unexpected behaviour will occur
 *  queue = queue where the memory has to be freed
+*  free_val = function that frees the memory of one of the elements in the queue
 */
-void free_queue(queue_t* queue);
+void free_queue(queue_t* queue, void free_val(void*));
 
 /*
 *Checks if the queue is empty
