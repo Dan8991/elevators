@@ -52,13 +52,15 @@ int remove_all(linked_list_t *my_list, int eliminate(void* value), void free_val
 }
 
 void *remove_first(linked_list_t *my_list){
-    if(my_list && my_list->head){
+    if(my_list && my_list->head && my_list->length > 0){
         node_t *ret = my_list->head->next;
         my_list->head->next = my_list->head->next->next;
         my_list->length --;
         if(!list_is_empty(my_list)){
             my_list->head->next->previous = my_list->head;
-        }
+        }else{
+			my_list->tail = my_list->head;
+		}
         reset_iterator(my_list);
         return ret->value;
     } else {
@@ -115,7 +117,16 @@ void *get_current_iter_value(linked_list_t *my_list){
 }
 
 void remove_current_iter_node(linked_list_t *my_list, void free_value(void*)){
-    if(my_list->iterator != my_list->head){
+	if(list_is_empty(my_list)){
+		return;
+	}
+	if(!iter_has_next(my_list)){
+		my_list->iterator = my_list->iterator->previous;
+		free_node(my_list->tail, free_value);
+		my_list->tail = my_list->iterator;
+		my_list->tail->next = NULL;
+		my_list->length--;
+	} else if(my_list->iterator != my_list->head){
         my_list->iterator->next->previous = my_list->iterator->previous;
         my_list->iterator->previous->next = my_list->iterator->next;
         node_t * temp = my_list->iterator->previous;
