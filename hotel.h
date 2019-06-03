@@ -37,6 +37,10 @@ void print_status(elevator_t *elvators);
 */
 void initialize_floors(queue_t *floors);
 
+/*
+*Frees all the memory allocated in the queues for each floor
+* floors = array of all the queues
+*/
 void free_floors_queues(queue_t *floors);
 
 #endif
