@@ -30,8 +30,8 @@ void time_step(elevator_t *elevators, queue_t *floors, int total_time){
 void print_status(elevator_t *elevators, queue_t* floors){
     printf("PRINT_STATUS:\n\n");
 	char temp[MAX_ELEVATOR_STRING_LENGTH];
-	print_info(elevator_to_string(temp, elevators));
-	print_info(elevator_to_string(temp, elevators + 1));
+	printf("%s", elevator_to_string(temp, elevators));
+	printf("%s", elevator_to_string(temp, elevators + 1));
 }
 
 
