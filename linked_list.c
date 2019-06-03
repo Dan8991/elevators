@@ -49,7 +49,7 @@ void *remove_first(linked_list_t *my_list)
     if( (my_list) && (my_list->head) && (my_list->length > 0))
 	{
         node_t *to_be_removed = my_list->head->next;
-		void *ret_val = ret->value;
+		void *ret_val = to_be_removed->value;
 
 		//removing the first node
         my_list->head->next = my_list->head->next->next;
@@ -86,7 +86,7 @@ linked_list_t *free_linked_list(linked_list_t *my_list, void remove_val(void*))
 {
     if(!my_list)
 	{
-		return NULL
+		return NULL;
 	}
 
 	node_t *curr = my_list->head->next;
@@ -102,6 +102,8 @@ linked_list_t *free_linked_list(linked_list_t *my_list, void remove_val(void*))
     } 
 
 	free(my_list);
+
+	return NULL;
 }
 
 void* move_next(linked_list_t *my_list)
