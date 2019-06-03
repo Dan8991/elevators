@@ -213,42 +213,6 @@ int remove_current_iter_node(linked_list_t *my_list, void free_value(void*))
 	return CORRECT_EXECUTION;
 }
 
-char *linked_list_to_string(char *list_string, linked_list_t *my_list, 
-        char *val_to_string(char* string, void* val), int max_val_string_length)
-{
-
-	if(!my_list)
-	{
-		return NULL;
-	}
-
-	//since the iterator is used to print the list it is resetted
-    reset_iterator(my_list);
-
-	//sets the string to an empty string to avoid unexpected behaviours
-    list_string[0] = '\0';
-
-	//temp string containing the string representation of the node
-    char temp[max_val_string_length];
-	
-	//if the list is empty then EMPTY is returned
-    if(linked_list_length(my_list) == 0)
-	{
-        return strcat(list_string, "EMPTY\n");
-    }
-
-	//concatenates all the representations of the values of the nodes
-    while(iter_has_next(my_list))
-	{
-        list_string = strcat(list_string, val_to_string(temp, move_next(my_list)));
-    } 
-
-	//since the iterator was used it is resetted again
-    reset_iterator(my_list);
-
-    return list_string;
-}
-
 int linked_list_length(linked_list_t *list)
 {
 	if(list)

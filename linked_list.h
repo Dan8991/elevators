@@ -113,20 +113,4 @@ int linked_list_length(linked_list_t *my_list);
 */
 int remove_current_iter_node(linked_list_t *my_list, void free_value(void*));
 
-/*
-*Returns a String that represents the list
-*Resets the iterator since it is used to traverse the list
-* list_string = String where the representation will be saved
-* list = list to be transformed into a string
-* val_to_string = function that transform the value of the nodes in a string
-*	val_string = string that will contain the string representation of the value
-*	of the node
-*   val = value to be represented as a string
-*   it has to return val_string
-* max_val_string_length = tells the max length of the string representing 
-* the node's value 
-*returns list_string unless list is NULL, in that case it returns NULL
-*/
-char *linked_list_to_string(char* list_string, linked_list_t *list,
-        char *val_to_string(char* val_string, void* val),int max_val_string_length);
 #endif

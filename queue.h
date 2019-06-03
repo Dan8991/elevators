@@ -55,20 +55,6 @@ void free_queue(queue_t* queue, void free_val(void*));
 int queue_is_empty(queue_t *queue);
 
 /*
-*Gives a string representation of the queue
-* queue = queue to be represented as a string
-* val_to_string = function that transform an element of the queue to a string
-* 		val_string = string where the representation of the value is saved
-*		val = valued to be represented
-* 		returns val_string
-* max_val_string_length = max length of the representation of val
-* returns a pointer to some heap allocated memory containing the string representation,
-* this implies that the pointer to the string needs to be freed sooner or later
-*/
-char *queue_to_string(queue_t *queue, char* val_to_string(char* val_string, void* val), 
-					int max_val_string_length);
-
-/*
 *Function that tells the length of the queue
 * queue = queue to be checked
 * returns the length of the queue or FAILED_EXECUTION if queue == NULL
