@@ -1,6 +1,5 @@
 #include "person.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 person_t *get_person(int destination, int arrival, int arrival_time)
 {
