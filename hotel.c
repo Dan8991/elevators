@@ -27,14 +27,11 @@ void time_step(elevator_t *elevators, queue_t *floors, int total_time){
     forward_time(elevators + 1, floors, total_time);
 }
 
-void print_info(elevator_t *elevator){
-	printf("elevator:\ncurrent floor: %d\npeople inside: %d\ndestination:%d\n\n", elevator->current_floor, elevator_load(elevator), elevator->destination); 
-}
-
 void print_status(elevator_t *elevators, queue_t* floors){
     printf("PRINT_STATUS:\n\n");
-	print_info(elevators);
-	print_info(elevators + 1);
+	char temp[MAX_ELEVATOR_STRING_LENGTH];
+	print_info(elevator_to_string(temp, elevators));
+	print_info(elevator_to_string(temp, elevators + 1));
 }
 
 
