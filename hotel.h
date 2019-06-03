@@ -11,7 +11,7 @@ void person_arrives(char *string, queue_t *floors, int current_time);
 
 void time_step(elevator_t *elevators, queue_t *floors, int time);
 
-void print_status(elevator_t *elvators, queue_t *floors);
+void print_status(elevator_t *elvators);
 
 void initialize_floors(queue_t *floors);
 
