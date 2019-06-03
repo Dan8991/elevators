@@ -1,9 +1,6 @@
 #ifndef PERSONA_H
 #define PERSONA_H
 
-#include "linked_list.h"
-#include "node.h"
-
 /*
 *struct representing a person that can queue to wait
 *for an elevator and can enter the elevator
