@@ -26,10 +26,9 @@ void forward_time(elevator_t *elevator, queue_t *people_queue, int total_time){
 }
 
 
-elevator_t *free_elevator(elevator_t *elevator){
+void free_elevator(elevator_t *elevator){
     free_linked_list(elevator->in_people, free);
     elevator->in_people = NULL;
-    return NULL;
 }
 
 void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_time){
@@ -83,7 +82,13 @@ void exit_people(elevator_t *elevator){
     }    
 }
 
-int elevator_load(elevator_t *elevator){
+int elevator_load(elevator_t *elevator)
+{
+	if(!elevator)
+	{
+		return FAILED_EXECUTION;
+	}
+
     return linked_list_length(elevator->in_people);
 }
 
