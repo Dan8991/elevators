@@ -1,2 +1,2 @@
-gcc -Wall *.c -o ascensore
+gcc -Wall -O2 *.c -o ascensore
 ./ascensore input.txt > output.txt
