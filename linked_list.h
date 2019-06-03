@@ -115,6 +115,7 @@ int remove_current_iter_node(linked_list_t *my_list, void free_value(void*));
 
 /*
 *Returns a String that represents the list
+*Resets the iterator since it is used to traverse the list
 * list_string = String where the representation will be saved
 * list = list to be transformed into a string
 * val_to_string = function that transform the value of the nodes in a string
