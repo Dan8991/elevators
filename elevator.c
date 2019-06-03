@@ -6,43 +6,76 @@
 #include "node.h"
 #include "queue.h"
 
-elevator_t get_elevator(){
-    return (elevator_t){
+elevator_t get_elevator()
+{
+	elevator_t ret = (elevator_t){
         in_people: create_list(),
         current_floor: 0,
         destination: 0,
     };
+
+    return ret;
 }
 
-void forward_time(elevator_t *elevator, queue_t *people_queue, int total_time){
-    if(elevator->current_floor == elevator->destination){
+void forward_time(elevator_t *elevator, queue_t *people_queue, int total_time)
+{
+	//if the elevator has arrived to destination find the new destination
+    if(elevator->current_floor == elevator->destination)
+	{
         choose_next_destination(elevator, people_queue, total_time);
     }
-    if(elevator->current_floor > elevator->destination){
+
+	//if the destination is below go down otherwise go up
+    if(elevator->current_floor > elevator->destination)
+	{
         elevator->current_floor--;
-    } else if(elevator->current_floor < elevator->destination) {
+    } 
+	else if(elevator->current_floor < elevator->destination) 
+	{
         elevator->current_floor++;
     }
 }
 
 
-void free_elevator(elevator_t *elevator){
+void free_elevator(elevator_t *elevator)
+{
     free_linked_list(elevator->in_people, free);
+
+	//setting in_people to NULL to make sure no unallocated memory is accessed
     elevator->in_people = NULL;
 }
 
-void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_time){
+void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_time)
+{
+	//array containing priorities for each floor
     int priorities[MAX_FLOOR] = {0};
+
+	//resetted iterator since it is necessary to traverse the list
 	reset_iterator(elevator->in_people);
-    while(iter_has_next(elevator->in_people)){
+
+	//iterate over all the people in the elevator
+    while(iter_has_next(elevator->in_people))
+	{
         person_t *person = (person_t*) move_next(elevator->in_people);
+
+		//increase the priority of the floor where the current person wants to go
         priorities[person->destination] += total_time - person->arrival_time;
     }
 
-
-    if(elevator_load(elevator) < MAX_ELEVATOR_CAPACITY){
-        for(int i = 0; i < MAX_FLOOR; i++){
-			if(!queue_is_empty(floors + i)){	
+	/*
+		the people waiting in the floors are considered for the priority only
+		if the elevator is not full
+	*/
+    if(elevator_load(elevator) < MAX_ELEVATOR_CAPACITY)
+	{
+        for(int i = 0; i < MAX_FLOOR; i++)
+		{
+			/*
+			if the queue at the ith floor is not empty then increase the priority
+			by the time the first of the queue has been waiting
+			*/
+			if(!queue_is_empty(floors + i))
+			{
 				priorities[i] += total_time - floors[i].start_time;
 			}
         }
@@ -52,8 +85,11 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_ti
     int max_priority = -1;
     int max_floor = -1;
 
-    for(int i = 0; i < MAX_FLOOR; i++){
-        if(priorities[i] > max_priority){
+	//search for the floor with the highest priority
+    for(int i = 0; i < MAX_FLOOR; i++)
+	{
+        if(priorities[i] > max_priority)
+		{
             max_floor = i;
             max_priority = priorities[i];
         }
@@ -62,21 +98,42 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_ti
     elevator->destination = max_floor;
 }
 
-void enter_people(elevator_t *elevator, queue_t *people_queue, int total_time){
-    while(elevator_load(elevator) < MAX_ELEVATOR_CAPACITY && 
-            !queue_is_empty(people_queue )){
+void enter_people(elevator_t *elevator, queue_t *people_queue, int total_time)
+{
+	//while there is still space in the elevator and the queue is not empty
+    while( (elevator_load(elevator) < MAX_ELEVATOR_CAPACITY) && 
+           (!queue_is_empty(people_queue)) )
+	{
+		//dequeue a person
         person_t *person = dequeue_element(people_queue);
+
+		//set the person arrival time in the elevator
         person->arrival_time = total_time;
+
+		//add the person to the elevator
         add(elevator->in_people, person);
+
+		//reset the timer of the current floor
         people_queue->start_time = total_time;
     }
 }
 
-void exit_people(elevator_t *elevator){
+void exit_people(elevator_t *elevator)
+{
+	/*
+	since the list of people inside the elevator needs to be iterated through 
+	the iterator is reset
+	*/
 	reset_iterator(elevator->in_people);
-    while(iter_has_next(elevator->in_people)){
+
+	//check all the people in the elevator if someone has arrived he can exit
+    while(iter_has_next(elevator->in_people))
+	{
         person_t *person = move_next(elevator->in_people);
-        if(person->destination == elevator->current_floor){
+
+		//if the person reached the destination remove it from the elevator
+        if(person->destination == elevator->current_floor)
+		{
         	remove_current_iter_node(elevator->in_people, free);
         }
     }    
@@ -92,16 +149,19 @@ int elevator_load(elevator_t *elevator)
     return linked_list_length(elevator->in_people);
 }
 
-char *elevator_to_string(char *elevator_string, elevator_t *elevator){
+char *elevator_to_string(char *elevator_string, elevator_t *elevator)
+{
+	//setting the string to an empty string to avoid unexpected behaviours
     elevator_string[0] = '\0';
-    char temp[MAX_PERSON_STRING_LENGTH * MAX_ELEVATOR_CAPACITY];
-    elevator_string = strcat(elevator_string, "elevator:\n");
-    elevator_string = strcat(elevator_string, linked_list_to_string(
-                                                                    temp, 
-                                                                    elevator->in_people, 
-                                                                    person_to_string, 
-                                                                    MAX_PERSON_STRING_LENGTH));
-    sprintf(temp, "current_floor:%d\ndestination:%d\n", elevator->current_floor, elevator->destination);
-    elevator_string = strcat(elevator_string, temp);
-    return elevator_string;
+	
+	//printing the correct representation inside the elevator_string string
+	sprintf(	
+		elevator_string, 
+		"elevator:\ncurrent floor: %d\npeople inside: %d\ndestination:%d\n\n",
+		elevator->current_floor, 
+		elevator_load(elevator), 
+		elevator->destination
+	);
+	
+	return elevator_string;
 }

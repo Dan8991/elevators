@@ -13,7 +13,7 @@
 #define MAX_FLOOR 20
 
 //extra characters needed for the to_string function
-#define MAX_ELEVATOR_EXTRA_STRING_LENGTH 50 
+#define MAX_ELEVATOR_STRING_LENGTH 100
 
 /*
 *Structure representing an elevator
@@ -45,7 +45,10 @@ elevator_t get_elevator();
 void forward_time(elevator_t *elevator, queue_t *queue, int total_time);
 
 /*
-*function that sets the destination of the elevator to its new value
+*function that sets the destination of the elevator to its new value.
+*The value is computed by considering how much people have been waiting 
+*the elevator in a queue, how long people have been waiting inside the
+*elevator and how many people want to go to a certain floor
 * elevator = elevator to which the new destination has to be assigned
 * floors = array of queues representing the queues at every floor
 * total_time = time passed since the beginning
