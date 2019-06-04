@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "hotel.h"
-#include "queue.h"
-#include "elevator.h"
 
 void person_arrives(char *command, queue_t *floors, int current_time)
 {

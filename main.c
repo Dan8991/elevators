@@ -1,7 +1,5 @@
 #include <string.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include "person.h"
 #include "elevator.h"
 #include "queue.h"
 #include "hotel.h"

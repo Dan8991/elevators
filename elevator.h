@@ -2,8 +2,6 @@
 #define ELEVATOR_H
 
 #include "person.h"
-#include "linked_list.h"
-#include "node.h"
 #include "queue.h"
 
 //maximum number of persons in the elevator

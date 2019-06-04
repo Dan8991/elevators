@@ -1,8 +1,6 @@
 #include "linked_list.h"
 #include "node.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 
 linked_list_t *create_list()

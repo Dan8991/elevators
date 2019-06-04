@@ -1,10 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include "elevator.h"
-#include "linked_list.h"
-#include "node.h"
-#include "queue.h"
 
 elevator_t get_elevator()
 {
