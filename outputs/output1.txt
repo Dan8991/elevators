@@ -1,0 +1,108 @@
+PRINT_STATUS:
+
+elevator:
+current floor: 0
+people inside: 0
+destination:0
+
+elevator:
+current floor: 0
+people inside: 0
+destination:0
+
+PRINT_STATUS:
+
+elevator:
+current floor: 5
+people inside: 1
+destination:7
+
+elevator:
+current floor: 5
+people inside: 0
+destination:7
+
+PRINT_STATUS:
+
+elevator:
+current floor: 10
+people inside: 3
+destination:15
+
+elevator:
+current floor: 10
+people inside: 0
+destination:15
+
+PRINT_STATUS:
+
+elevator:
+current floor: 14
+people inside: 3
+destination:15
+
+elevator:
+current floor: 14
+people inside: 0
+destination:15
+
+PRINT_STATUS:
+
+elevator:
+current floor: 15
+people inside: 5
+destination:15
+
+elevator:
+current floor: 15
+people inside: 0
+destination:15
+
+PRINT_STATUS:
+
+elevator:
+current floor: 8
+people inside: 5
+destination:0
+
+elevator:
+current floor: 8
+people inside: 0
+destination:0
+
+PRINT_STATUS:
+
+elevator:
+current floor: 4
+people inside: 4
+destination:0
+
+elevator:
+current floor: 4
+people inside: 0
+destination:0
+
+PRINT_STATUS:
+
+elevator:
+current floor: 0
+people inside: 6
+destination:0
+
+elevator:
+current floor: 0
+people inside: 0
+destination:0
+
+PRINT_STATUS:
+
+elevator:
+current floor: 4
+people inside: 5
+destination:16
+
+elevator:
+current floor: 4
+people inside: 0
+destination:18
+
