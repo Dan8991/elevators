@@ -6,16 +6,20 @@
 int main(){
 	srand(time(NULL));
 
-	for(int i = 0; i<1000000;i++){
-		int choice = rand() % 3;
-		if(!choice){
-			int arrival = rand()%20;
-			int destination = rand()%20;
+	for(int i = 0; i<50;i++){
+		int choice = rand() % 10;
+		if(choice < 3){
+			int arrival = 0;	
+			int destination = 0;
+			while(arrival == destination){
+				arrival = rand()%20;
+				destination = rand()%20;
+			}
 			printf("%s %d %d\n", "PERSON_ARRIVES", arrival, destination);
-		} else {
+		} else if(choice >= 3 && choice <=8){
 			printf("TIME_STEP\n");
+		} else{
 			printf("PRINT_STATUS\n");
-			continue;
 		}
 	}
 
