@@ -13,6 +13,8 @@
 //extra characters needed for the to_string function
 #define MAX_ELEVATOR_STRING_LENGTH 100
 
+#define DOWN_TO_UP_PRIORITY 0
+
 /*
 *Structure representing an elevator
 * in_people = list of people inside the elevator
@@ -36,11 +38,13 @@ elevator_t get_elevator();
 
 /*
 *Function that tells the elevator to make a step in time
-* elevator = elevator that has to make the steop in time
+* elevators = array of elevators that need to make a time step
+* elevators_num = length of elevators
 * queue = array of queues representing the queues at every floor
 * total_time = time passed since the beginning 
 */
-void forward_time(elevator_t *elevator, queue_t *queue, int total_time);
+void forward_time(elevator_t *elevators, int elevators_length, 
+					queue_t *queue, int total_time);
 
 /*
 *function that sets the destination of the elevator to its new value.
@@ -50,8 +54,12 @@ void forward_time(elevator_t *elevator, queue_t *queue, int total_time);
 * elevator = elevator to which the new destination has to be assigned
 * floors = array of queues representing the queues at every floor
 * total_time = time passed since the beginning
+* priority = can be 0 or non zero, if zero then the lowest floor with highest
+* priority is set as the destination, if non zero then the highest floor with 
+* highest priority is set as the destination
 */
-void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_time);
+void choose_next_destination(elevator_t *elevator, 
+			queue_t *floors, int total_time, int from_top_or_bottom);
 
 /*
 *Functions that lets the people in the current_floor enter the elevator

@@ -13,23 +13,26 @@ elevator_t get_elevator()
     return ret;
 }
 
-void forward_time(elevator_t *elevator, queue_t *people_queue, int total_time)
+void forward_time(elevator_t *elevators, int elevators_length, 
+					queue_t *people_queue, int total_time)
 {
-	//if the elevator has arrived to destination find the new destination
-    if(elevator->current_floor == elevator->destination)
-	{
-        choose_next_destination(elevator, people_queue, total_time);
-    }
-
-	//if the destination is below go down otherwise go up
-    if(elevator->current_floor > elevator->destination)
-	{
-        elevator->current_floor--;
-    } 
-	else if(elevator->current_floor < elevator->destination) 
-	{
-        elevator->current_floor++;
-    }
+	for(int i = 0; i < elevators_length; i++){
+		//if the elevator has arrived to destination find the new destination
+    	if(elevators[i].current_floor == elevators[i].destination)
+		{
+        	choose_next_destination(elevators + i, people_queue, total_time, i % 2);
+    	}
+	
+		//if the destination is below go down otherwise go up
+    	if(elevators[i].current_floor > elevators[i].destination)
+		{
+        	elevators[i].current_floor--;
+    	} 
+		else if(elevators[i].current_floor < elevators[i].destination) 
+		{
+        	elevators[i].current_floor++;
+    	}
+	}
 }
 
 
@@ -41,7 +44,8 @@ void free_elevator(elevator_t *elevator)
     elevator->in_people = NULL;
 }
 
-void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_time)
+void choose_next_destination(elevator_t *elevator, queue_t *floors,
+								int total_time, int from_top_or_bottom)
 {
 	//array containing priorities for each floor
     int priorities[MAX_FLOOR] = {0};
@@ -81,10 +85,24 @@ void choose_next_destination(elevator_t *elevator, queue_t *floors, int total_ti
     int max_priority = -1;
     int max_floor = -1;
 
+	//i want from_top_or_bottom to be 0 or 1
+	if(from_top_or_bottom != 0)
+	{
+	 	from_top_or_bottom = 1;	
+	}
+
 	//search for the floor with the highest priority
     for(int i = 0; i < MAX_FLOOR; i++)
 	{
-        if(priorities[i] > max_priority)
+		/*if from_top_or_bottom == 0 then the inequality is priorities[i] > max_priority,
+		this means that we are returning the first floor from the bottom that has 
+		maximum priority, else if from_top_or_bottom == 1 the the inequality is
+		priorities[i] >= max_priority so we are returning the first floor from 
+		the top with the highest priority 
+		This is useful because it sometimes prevent elevators from 
+		choosing the same destination.
+		*/
+        if(priorities[i] > max_priority - from_top_or_bottom)
 		{
             max_floor = i;
             max_priority = priorities[i];

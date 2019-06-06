@@ -6,6 +6,9 @@
 #define PRINT_STATUS "PRINT_STATUS" 
 #define TIME_STEP "TIME_STEP" 
 
+//number of elevators in the hotel
+#define ELEVATORS_NUMBER 2
+
 //max length of a single command
 #define MAX_INPUT_LINE_LENGTH 23
 

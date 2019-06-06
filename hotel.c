@@ -40,8 +40,7 @@ void time_step_elevator(elevator_t *elevator,queue_t *floors, int total_time)
 void time_step(elevator_t *elevators, queue_t *floors, int total_time)
 {
 	//the elevators moove 
-    forward_time(elevators, floors, total_time);
-    forward_time(elevators + 1, floors, total_time);
+    forward_time(elevators, ELEVATORS_NUMBER, floors, total_time);
 
 	//the elevators let the people in and out at the current floor
     time_step_elevator(elevators, floors, total_time);
