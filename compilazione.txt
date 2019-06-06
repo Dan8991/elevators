@@ -1,0 +1,23 @@
+Comando usato per compilare
+gcc -Wall -O2 *.c -o ascensore
+
+le righe che all'inizio hanno // sono dei commenti e non appariranno nell'output
+esempio di output:
+
+//quando viene chiamato PRINT_STATUS in output esce la stringa seguente
+PRINT_STATUS:
+
+//questo è l'output del primo ascensore 
+elevator:
+current floor: 4
+people inside: 0
+destination:7
+
+//questo è l'output del secondo ascensore
+elevator:
+current floor: 6
+people inside: 0
+destination:19
+
+
+
