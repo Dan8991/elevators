@@ -19,5 +19,5 @@ current floor: 6
 people inside: 0
 destination:19
 
-
+//esempi completi di output possono essere trovati nella cartella outputs/
 
