@@ -39,7 +39,7 @@ int main(int argv, char **argc){
 		//execute a different function for each of the three different commands
         if(strcmp(base_command, PRINT_STATUS) == 0)
 		{
-            print_status(elevators);
+            print_status(elevators, ELEVATORS_NUMBER);
         } 
 		else if(strcmp(base_command, "TIME_STEP") == 0)
 		{

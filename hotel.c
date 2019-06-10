@@ -47,15 +47,18 @@ void time_step(elevator_t *elevators, queue_t *floors, int total_time)
     time_step_elevator(elevators + 1, floors, total_time);
 }
 
-void print_status(elevator_t *elevators)
+void print_status(elevator_t *elevators, int elevators_number)
 {
     printf("PRINT_STATUS:\n\n");
 
 	//temp string that will contain the elevators infos
 	char temp[MAX_ELEVATOR_STRING_LENGTH];
 
-	printf("%s", elevator_to_string(temp, elevators));
-	printf("%s", elevator_to_string(temp, elevators + 1));
+	for(int i = 0; i < elevators_number; i++)
+	{
+		printf("Elevator %d\n", i);
+		printf("%s", elevator_to_string(temp, elevators + i));
+	}
 }
 
 

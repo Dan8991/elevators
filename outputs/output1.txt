@@ -1,10 +1,12 @@
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 0
 people inside: 0
 destination:0
 
+Elevator 1
 elevator:
 current floor: 1
 people inside: 0
@@ -12,11 +14,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 0
 people inside: 0
 destination:0
 
+Elevator 1
 elevator:
 current floor: 2
 people inside: 0
@@ -24,11 +28,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 1
 people inside: 0
 destination:7
 
+Elevator 1
 elevator:
 current floor: 3
 people inside: 0
@@ -36,11 +42,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 2
 people inside: 0
 destination:7
 
+Elevator 1
 elevator:
 current floor: 4
 people inside: 0
@@ -48,11 +56,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 3
 people inside: 0
 destination:7
 
+Elevator 1
 elevator:
 current floor: 5
 people inside: 0
@@ -60,11 +70,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 4
 people inside: 0
 destination:7
 
+Elevator 1
 elevator:
 current floor: 6
 people inside: 0
@@ -72,11 +84,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 5
 people inside: 0
 destination:7
 
+Elevator 1
 elevator:
 current floor: 7
 people inside: 1
@@ -84,11 +98,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 6
 people inside: 0
 destination:7
 
+Elevator 1
 elevator:
 current floor: 8
 people inside: 0
@@ -96,11 +112,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 7
 people inside: 0
 destination:7
 
+Elevator 1
 elevator:
 current floor: 9
 people inside: 0
@@ -108,11 +126,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 7
 people inside: 1
 destination:7
 
+Elevator 1
 elevator:
 current floor: 10
 people inside: 0
@@ -120,11 +140,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 8
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 11
 people inside: 0
@@ -132,11 +154,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 9
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 12
 people inside: 0
@@ -144,11 +168,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 10
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 13
 people inside: 0
@@ -156,11 +182,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 11
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 14
 people inside: 0
@@ -168,11 +196,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 12
 people inside: 2
 destination:19
 
+Elevator 1
 elevator:
 current floor: 15
 people inside: 0
@@ -180,11 +210,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 13
 people inside: 2
 destination:19
 
+Elevator 1
 elevator:
 current floor: 16
 people inside: 1
@@ -192,11 +224,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 14
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 17
 people inside: 2
@@ -204,11 +238,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 15
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 18
 people inside: 2
@@ -216,11 +252,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 16
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 19
 people inside: 2
@@ -228,11 +266,13 @@ destination:19
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 17
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 18
 people inside: 3
@@ -240,11 +280,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 18
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 17
 people inside: 3
@@ -252,11 +294,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 19
 people inside: 1
 destination:19
 
+Elevator 1
 elevator:
 current floor: 16
 people inside: 3
@@ -264,11 +308,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 18
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 15
 people inside: 3
@@ -276,11 +322,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 17
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 14
 people inside: 3
@@ -288,11 +336,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 16
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 13
 people inside: 3
@@ -300,11 +350,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 16
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 13
 people inside: 3
@@ -312,11 +364,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 15
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 12
 people inside: 3
@@ -324,11 +378,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 14
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 11
 people inside: 3
@@ -336,11 +392,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 13
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 10
 people inside: 3
@@ -348,11 +406,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 12
 people inside: 0
 destination:3
 
+Elevator 1
 elevator:
 current floor: 9
 people inside: 3
@@ -360,11 +420,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 11
 people inside: 0
 destination:3
 
+Elevator 1
 elevator:
 current floor: 8
 people inside: 2
@@ -372,11 +434,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 10
 people inside: 0
 destination:3
 
+Elevator 1
 elevator:
 current floor: 7
 people inside: 2
@@ -384,11 +448,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 9
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 6
 people inside: 1
@@ -396,11 +462,13 @@ destination:3
 
 PRINT_STATUS:
 
+Elevator 0
 elevator:
 current floor: 8
 people inside: 1
 destination:3
 
+Elevator 1
 elevator:
 current floor: 5
 people inside: 1

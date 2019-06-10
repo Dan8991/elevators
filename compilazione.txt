@@ -7,17 +7,18 @@ esempio di output:
 //quando viene chiamato PRINT_STATUS in output esce la stringa seguente
 PRINT_STATUS:
 
-//questo è l'output del primo ascensore 
+Elevator 0
 elevator:
-current floor: 4
-people inside: 0
-destination:7
-
-//questo è l'output del secondo ascensore
-elevator:
-current floor: 6
-people inside: 0
+current floor: 10
+people inside: 8
 destination:19
+
+Elevator 1
+elevator:
+current floor: 8
+people inside: 2
+destination:19
+PRINT_STATUS:
 
 //esempi completi di output possono essere trovati nella cartella outputs/
 

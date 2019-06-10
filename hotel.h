@@ -31,8 +31,9 @@ void time_step(elevator_t *elevators, queue_t *floors, int time_passed);
 /*
 *function that prints the status of the hotel
 * elevators = array that contains the two elevators
+* elevators_numbers = number of elevators in the array
 */
-void print_status(elevator_t *elvators);
+void print_status(elevator_t *elvators, int elevators_numbers);
 
 /*
 *Function that initializes the queues for each floor
