@@ -1,4 +1,4 @@
-Comando usato per compilare
+//Comando usato per compilare
 gcc -Wall -O2 *.c -o ascensore
 
 le righe che all'inizio hanno // sono dei commenti e non appariranno nell'output
@@ -7,18 +7,15 @@ esempio di output:
 //quando viene chiamato PRINT_STATUS in output esce la stringa seguente
 PRINT_STATUS:
 
-Elevator 0
-elevator:
-current floor: 10
-people inside: 8
-destination:19
+Elevator 1:
+Current floor: 13
+People inside: 1
+Destination: 3
 
-Elevator 1
-elevator:
-current floor: 8
-people inside: 2
-destination:19
-PRINT_STATUS:
+Elevator 2:
+Current floor: 10
+People inside: 3
+Destination: 3
 
 //esempi completi di output possono essere trovati nella cartella outputs/
 

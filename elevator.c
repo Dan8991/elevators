@@ -171,7 +171,7 @@ char *elevator_to_string(char *elevator_string, elevator_t *elevator)
 	//printing the correct representation inside the elevator_string string
 	sprintf(	
 		elevator_string, 
-		"elevator:\ncurrent floor: %d\npeople inside: %d\ndestination:%d\n\n",
+		"Current floor: %d\nPeople inside: %d\nDestination: %d\n\n",
 		elevator->current_floor, 
 		elevator_load(elevator), 
 		elevator->destination

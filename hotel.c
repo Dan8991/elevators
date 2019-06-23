@@ -56,7 +56,7 @@ void print_status(elevator_t *elevators, int elevators_number)
 
 	for(int i = 0; i < elevators_number; i++)
 	{
-		printf("Elevator %d\n", i);
+		printf("Elevator %d:\n", i + 1);
 		printf("%s", elevator_to_string(temp, elevators + i));
 	}
 }
